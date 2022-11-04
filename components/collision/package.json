@@ -3,8 +3,10 @@
   "version": "0.1.0",
   "description": "",
   "main": "collision.ts",
-
   "keywords": [],
   "author": "",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@bisaek/gameengineweb": "file:../../gameengine"
+  }
 }
