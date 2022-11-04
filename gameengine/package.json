@@ -1,0 +1,10 @@
+{
+  "name": "@bisaek/gameengineweb",
+  "version": "0.1.0",
+  "description": "",
+  "main": "gameengine.ts",
+
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

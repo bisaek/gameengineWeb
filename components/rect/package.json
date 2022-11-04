@@ -1,0 +1,10 @@
+{
+  "name": "@bisaek/gameengine-rect",
+  "version": "0.1.0",
+  "description": "",
+  "main": "rect.ts",
+
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

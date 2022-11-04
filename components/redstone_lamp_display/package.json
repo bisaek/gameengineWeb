@@ -1,0 +1,10 @@
+{
+  "name": "@bisaek/gameengine-redstone_lamp_display",
+  "version": "0.1.0",
+  "description": "",
+  "main": "redstone_lamp_display.ts",
+
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

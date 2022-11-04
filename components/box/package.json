@@ -1,0 +1,9 @@
+{
+  "name": "@bisaek/gameengine-box",
+  "version": "0.0.1",
+  "description": "",
+  "main": "box.ts",
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@bisaek/gameengine-collision",
+  "version": "0.1.0",
+  "description": "",
+  "main": "collision.ts",
+
+  "keywords": [],
+  "author": "",
+  "license": "MIT"
+}
