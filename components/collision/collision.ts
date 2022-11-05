@@ -1,4 +1,4 @@
-import { GameObject } from "@bisaek/gameengineweb";
+import { GameObject } from "huggerengine";
 
 let collisions = [];
 

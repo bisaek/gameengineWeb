@@ -1,13 +1,13 @@
 {
-  "name": "@bisaek/gameengine-redstone_lamp_display",
+  "name": "huggerengine-redstone_lamp_display",
   "version": "0.1.0",
   "description": "",
   "main": "redstone_lamp_display.ts",
-
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bisaek/gameengineweb": "file:../../gameengine"
+    "huggerengine": "^0.1.1",
+    "huggerengine-sprite": "^0.1.0"
   }
 }

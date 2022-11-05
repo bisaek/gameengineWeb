@@ -1,0 +1,15 @@
+{
+  "name": "huggerengine",
+  "version": "0.0.0",
+  "type": "module",
+  "devDependencies": {
+    "vite": "^3.2.0"
+  },
+  "dependencies": {
+    "huggerengine": "^0.1.1",
+    "huggerengine-collision": "^0.1.0",
+    "huggerengine-redstone_lamp_display": "^0.1.0",
+    "huggerengine-rigidbody": "^1.0.0",
+    "huggerengine-sprite": "^0.1.0"
+  }
+}

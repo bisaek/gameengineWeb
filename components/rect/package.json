@@ -1,12 +1,12 @@
 {
   "name": "huggerengine-rect",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "",
   "main": "rect.ts",
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bisaek/gameengineweb": "file:../../gameengine"
+    "huggerengine": "^0.1.1"
   }
 }

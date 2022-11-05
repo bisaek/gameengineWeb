@@ -1,5 +1,5 @@
-import { GameObject, window } from "@bisaek/gameengineweb";
-import sprite from "@bisaek/gameengine-sprite";
+import { GameObject, window } from "huggerengine";
+import sprite from "huggerengine-sprite";
 import offLamp from "./texture/redstone_lamp.png";
 import onLamp from "./texture/redstone_lamp_on.png";
 

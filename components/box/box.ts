@@ -1,4 +1,4 @@
-import { window } from "@bisaek/gameengineweb";
+import { window } from "huggerengine";
 
 function point(x: number, y: number, canvas: CanvasRenderingContext2D) {
   canvas.beginPath();

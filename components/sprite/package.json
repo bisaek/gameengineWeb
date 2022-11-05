@@ -8,6 +8,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@bisaek/gameengineweb": "file:../../gameengine"
+    "huggerengine": "^0.1.1"
   }
 }

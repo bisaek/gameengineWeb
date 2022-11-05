@@ -1,4 +1,4 @@
-import { window, GameObject } from "@bisaek/gameengineweb";
+import { window, GameObject } from "huggerengine";
 
 export default class rigidbody {
   public window: window;
