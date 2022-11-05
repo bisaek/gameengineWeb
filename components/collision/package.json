@@ -1,5 +1,5 @@
 {
-  "name": "@bisaek/gameengine-collision",
+  "name": "huggerengine-collision",
   "version": "0.1.0",
   "description": "",
   "main": "collision.ts",

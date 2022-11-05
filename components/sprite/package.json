@@ -1,5 +1,5 @@
 {
-  "name": "@bisaek/gameengine-sprite",
+  "name": "huggerengine-sprite",
   "version": "0.1.0",
   "description": "",
   "main": "sprite.ts",
