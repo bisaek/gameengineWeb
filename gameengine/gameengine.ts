@@ -57,6 +57,9 @@ class window {
   private keyPresses: String[] = [];
   private height;
   private width;
+  private t0 = performance.now();
+  private t1: number = 0;
+  public deltaTime = 0;
 
   public update: Function = () => {};
 
@@ -110,7 +113,11 @@ class window {
       // if (!this.ctx) return;
       // this.ctx.fillRect(element.x, element.y, element.width, element.height);
     });
-
+    // this.deltaTime = performance.now() - this.deltaTime;
+    this.t1 = performance.now();
+    this.deltaTime = (this.t1 - this.t0) / 1000;
+    // console.log(Math.round(1000 / (this.t1 - this.t0)));
+    this.t0 = performance.now();
     this.update();
 
     this.keyPresses = [];
