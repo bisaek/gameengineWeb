@@ -60,6 +60,8 @@ class window {
   private t0 = performance.now();
   private t1: number = 0;
   public deltaTime = 0;
+  public mouseDown = false;
+  public touch = false;
 
   public update: Function = () => {};
 
@@ -83,6 +85,21 @@ class window {
     addEventListener("keyup", (e: KeyboardEvent) => {
       if (this.keyDowns.includes(e.key))
         this.keyDowns.splice(this.keyDowns.indexOf(e.key), 1);
+    });
+    addEventListener("mousedown", (e: MouseEvent) => {
+      this.mouseDown = true;
+    });
+    addEventListener("mouseup", (e: MouseEvent) => {
+      this.mouseDown = false;
+    });
+    this.canvas.addEventListener("touchstart", (e: TouchEvent) => {
+      this.touch = true;
+    });
+    this.canvas.addEventListener("touchend", (e: TouchEvent) => {
+      this.touch = false;
+    });
+    this.canvas.addEventListener("touchcancel", (e: TouchEvent) => {
+      this.touch = false;
     });
 
     this.Update();
@@ -124,9 +141,9 @@ class window {
     requestAnimationFrame(() => this.Update());
   }
 
-  mouseDown(listenerFunction: ListenerFunction) {
-    this.canvas?.addEventListener("mousedown", listenerFunction);
-  }
+  // mouseDown(listenerFunction: ListenerFunction) {
+  //   this.canvas?.addEventListener("mousedown", listenerFunction);
+  // }
   createGameObject(x: number, y: number, height: number, width: number) {
     let gameObject = new GameObject(x, y, height, width, this);
     this.GameObjects.push(gameObject);
