@@ -19,6 +19,7 @@ class GameObject {
   public width: number;
   public window: window;
   public components: Array<any> = [];
+  public inGame = true;
 
   constructor(
     x: number,
@@ -44,6 +45,17 @@ class GameObject {
     return this.components.find(
       (component) => component.constructor.name === c
     );
+  }
+  destroy() {
+    // console.log("hello");
+    this.window.GameObjects.forEach((i, index) => {
+      if (i == this) this.window.GameObjects.splice(index, 1);
+    });
+    this.inGame = false;
+  }
+  create() {
+    this.window.GameObjects.push(this);
+    this.inGame = true;
   }
 }
 
@@ -101,6 +113,16 @@ class window {
     this.canvas.addEventListener("touchcancel", (e: TouchEvent) => {
       this.touch = false;
     });
+    this.canvas.addEventListener("click", (e: MouseEvent) => {
+      this.GameObjects.forEach((element) => {
+        element.components.forEach((component) => {
+          if (component.onClicked) component.onClicked(e);
+        });
+      });
+    });
+    // this.canvas.addEventListener("click", (e: GameObject) => {
+    //   console.log("click")
+    // })
 
     this.Update();
   }

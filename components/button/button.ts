@@ -11,7 +11,7 @@ export default class button {
     width: 0,
     height: 0,
   };
-  clicked = false;
+  clicked = () => {};
 
   constructor(text: string, size: number) {
     this.textSize = size;
@@ -29,13 +29,7 @@ export default class button {
   update() {
     if (!this.window.ctx) return;
 
-    if (
-      pos.x > this.rect.x &&
-      pos.x < this.rect.x + this.rect.width &&
-      pos.y < this.rect.y + this.rect.height &&
-      pos.y > this.rect.y
-    )
-      this.window.ctx.beginPath();
+    this.window.ctx.beginPath();
     this.window.ctx.rect(
       this.gameObject.x,
       this.gameObject.y,
@@ -57,5 +51,19 @@ export default class button {
       this.gameObject.x,
       this.gameObject.y + this.gameObject.height / 2
     );
+  }
+
+  onClicked(e: MouseEvent) {
+    let pos = {
+      x: e.clientX,
+      y: e.clientY,
+    };
+    if (
+      pos.x > this.rect.x &&
+      pos.x < this.rect.x + this.rect.width &&
+      pos.y < this.rect.y + this.rect.height &&
+      pos.y > this.rect.y
+    )
+      this.clicked();
   }
 }
