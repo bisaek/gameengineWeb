@@ -1,6 +1,7 @@
 import { window, GameObject } from "huggerengine";
 
 export default class sprite {
+  public id = "sprite";
   public window!: window;
   public gameObject!: GameObject;
   public imgPath: string = "";

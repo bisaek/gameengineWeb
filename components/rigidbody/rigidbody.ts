@@ -1,12 +1,20 @@
 import { window, GameObject } from "huggerengine";
+import collision from "huggerengine-collision";
 
 export default class rigidbody {
-  public window: window;
-  public gameObject: GameObject;
-  public collision;
-  public collisionSides;
+  public id = "rigidbody";
+  public window!: window;
+  public gameObject!: GameObject;
+  public collision!: collision;
+  public collisionSides = {
+    left: false,
+    right: false,
+    top: false,
+    bottom: false,
+  };
   public gravity = true;
-  private gravity_speed = 2;
+  public gravity_speed = 0.1;
+  private velocity = 1.07;
 
   start() {
     this.collision = this.gameObject.getComponent("collision");
@@ -51,6 +59,8 @@ export default class rigidbody {
       (y < 0 && !this.collisionSides.top) ||
       (y > 0 && !this.collisionSides.bottom)
     ) {
+      if (y > 0) this.gravity_speed *= this.velocity;
+      else this.gravity_speed = 0.1;
       this.gameObject.y += y;
       this.collision.checkForCollision();
       // if(y > 0 && this.collisionSides.top){
@@ -64,7 +74,7 @@ export default class rigidbody {
           this.gameObject.y -= 1;
           // this.gravity_speed = 2;
         } else this.gameObject.y += 1;
-
+        // this.gravity_speed = 0.1;
         this.collision.checkForCollision();
       }
       // if(y > 0 && this.collisionSides.top){

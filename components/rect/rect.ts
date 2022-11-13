@@ -1,10 +1,12 @@
+import { window, GameObject } from "huggerengine";
+
 export default class rect {
-  public gameObject;
-  public window;
+  public gameObject!: GameObject;
+  public window!: window;
   public color = "#000000";
   // public window;
   update() {
-    // if (!this.ctx) return;
+    if (!this.window.ctx) return;
     this.window.ctx.fillStyle = this.color;
     this.window.ctx.fillRect(
       this.gameObject.x,

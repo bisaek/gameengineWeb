@@ -8,7 +8,7 @@ interface Options {
   height: number;
 }
 
-type ListenerFunction = (e: MouseEvent) => void;
+// type ListenerFunction = (e: MouseEvent) => void;
 
 // const components = { rect, collision, sprite, rigidbody };
 
@@ -42,15 +42,14 @@ class GameObject {
     this.components.push(component);
   }
   getComponent(c: string) {
-    return this.components.find(
-      (component) => component.constructor.name === c
-    );
+    return this.components.find((component) => component.id === c);
   }
   destroy() {
     // console.log("hello");
     this.window.GameObjects.forEach((i, index) => {
       if (i == this) this.window.GameObjects.splice(index, 1);
     });
+    console.log(this.window.GameObjects.length);
     this.inGame = false;
   }
   create() {
@@ -98,19 +97,19 @@ class window {
       if (this.keyDowns.includes(e.key))
         this.keyDowns.splice(this.keyDowns.indexOf(e.key), 1);
     });
-    addEventListener("mousedown", (e: MouseEvent) => {
+    addEventListener("mousedown", () => {
       this.mouseDown = true;
     });
-    addEventListener("mouseup", (e: MouseEvent) => {
+    addEventListener("mouseup", () => {
       this.mouseDown = false;
     });
-    this.canvas.addEventListener("touchstart", (e: TouchEvent) => {
+    this.canvas.addEventListener("touchstart", () => {
       this.touch = true;
     });
-    this.canvas.addEventListener("touchend", (e: TouchEvent) => {
+    this.canvas.addEventListener("touchend", () => {
       this.touch = false;
     });
-    this.canvas.addEventListener("touchcancel", (e: TouchEvent) => {
+    this.canvas.addEventListener("touchcancel", () => {
       this.touch = false;
     });
     this.canvas.addEventListener("click", (e: MouseEvent) => {
@@ -143,15 +142,18 @@ class window {
   Update() {
     if (!this.ctx) return;
     if (!this.canvas) return;
+    // let speed = 0;
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.GameObjects.forEach((element) => {
       element.components.forEach((component) => {
+        // speed++;
         if (component.update) component.update();
       });
 
       // if (!this.ctx) return;
       // this.ctx.fillRect(element.x, element.y, element.width, element.height);
     });
+    // console.log(speed);
     // this.deltaTime = performance.now() - this.deltaTime;
     this.t1 = performance.now();
     this.deltaTime = (this.t1 - this.t0) / 1000;
