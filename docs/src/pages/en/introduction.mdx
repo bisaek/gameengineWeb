@@ -1,0 +1,66 @@
+---
+title: Introduction
+description: Docs intro
+layout: ../../layouts/MainLayout.astro
+---
+
+import CodeExample from "../../components/codeExamples/introduction.astro";
+
+---
+
+## What is HuggerEngine
+
+Huggerengine is a JavaScript/typescript game engine designed to be scalable and fit all needs. In the currents version it only works in the browser, but our team has plans to scale it to more platforms.
+
+Here is a minimal example:
+
+```ts
+import { window, GameObject } from "huggerengine";
+import rect from "huggerengine-rect";
+import collision from "huggerengine-collision";
+import rigidbody from "huggerengine-rigidbody";
+
+class Player {
+  gameObject!: GameObject;
+  rb!: rigidbody;
+  window!: window;
+
+  start() {
+    this.rb = this.gameObject.getComponent("rigidbody");
+  }
+
+  update() {
+    if (this.window.keyDown("a")) this.rb.moveX(-10);
+    if (this.window.keyDown("d")) this.rb.moveX(10);
+    if (this.window.keyPress("w")) this.rb.moveY(-50);
+  }
+}
+
+let game = new window("#game", { width: 500, height: 500 });
+
+let platform = game.createGameObject(50, 400, 50, 400);
+platform.addComponent(new rect());
+platform.addComponent(new collision());
+
+let player = game.createGameObject(225, 100, 50, 50);
+player.addComponent(new rect());
+player.addComponent(new collision());
+player.addComponent(new rigidbody());
+player.addComponent(new Player());
+```
+
+```html
+<canvas id="game"></canvas>
+```
+
+#### Result
+
+<CodeExample> </CodeExample>
+
+## Getting Started
+
+To get started with this theme, check out the `README.md` in your new project directory. It provides documentation on how to use and customize this template for your own project. Keep the README around so that you can always refer back to it as you build.
+
+Found a missing feature that you can't live without? Please suggest it on Discord [(#ideas-and-suggestions channel)](https://astro.build/chat) and even consider adding it yourself on GitHub! Astro is an open source project and contributions from developers like you are how we grow!
+
+Good luck out there, Astronaut. 🧑‍🚀
