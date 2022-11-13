@@ -1,6 +1,7 @@
 import { GameObject, window } from "huggerengine";
 
 export default class button {
+  id = "button";
   gameObject!: GameObject;
   window!: window;
   textSize = 16;
