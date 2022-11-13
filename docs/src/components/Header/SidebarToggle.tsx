@@ -1,13 +1,12 @@
-/** @jsxImportSource preact */
-import type { FunctionalComponent } from 'preact';
-import { useState, useEffect } from 'preact/hooks';
+/** @jsxImportSource solid-js */
+import { createSignal, createEffect } from "solid-js";
 
-const MenuToggle: FunctionalComponent = () => {
-	const [sidebarShown, setSidebarShown] = useState(false);
+const MenuToggle = () => {
+	const [sidebarShown, setSidebarShown] = createSignal(false);
 
-	useEffect(() => {
+	createEffect(() => {
 		const body = document.querySelector('body')!;
-		if (sidebarShown) {
+		if (sidebarShown()) {
 			body.classList.add('mobile-sidebar-toggle');
 		} else {
 			body.classList.remove('mobile-sidebar-toggle');
@@ -17,9 +16,9 @@ const MenuToggle: FunctionalComponent = () => {
 	return (
 		<button
 			type="button"
-			aria-pressed={sidebarShown ? 'true' : 'false'}
+			aria-pressed={sidebarShown() ? 'true' : 'false'}
 			id="menu-toggle"
-			onClick={() => setSidebarShown(!sidebarShown)}
+			onClick={() => setSidebarShown(!sidebarShown())}
 		>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
