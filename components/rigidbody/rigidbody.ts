@@ -17,7 +17,7 @@ export default class rigidbody {
   private velocity = 1.07;
 
   start() {
-    this.collision = this.gameObject.getComponent("collision");
+    this.collision = this.gameObject.getComponent(collision);
     if (this.collision) this.collisionSides = this.collision.collisionSides;
     console.log(this.collision);
   }
