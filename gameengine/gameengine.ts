@@ -12,6 +12,27 @@ interface Options {
 
 // const components = { rect, collision, sprite, rigidbody };
 
+class component {
+  gameObject!: GameObject;
+  window!: window;
+  options = {};
+  defualtOptions = {};
+  constructor(options: {}) {
+    // console.log(this.defualtOptions);
+    // this.options = this.defualtOptions
+    //   ? { ...this.defualtOptions, ...options }
+    //   : options;
+    this.options = { ...options };
+    console.log(this.options);
+  }
+  setDefualtOptions(options: {}) {
+    this.options = { ...options, ...this.options };
+  }
+  setId(id: string) {
+    this.options.id = id;
+  }
+}
+
 class GameObject {
   public x: number;
   public y: number;
@@ -195,4 +216,4 @@ class window {
   //   }
 }
 
-export { window, GameObject };
+export { window, GameObject, component };
