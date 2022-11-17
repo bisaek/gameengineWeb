@@ -49,9 +49,10 @@ export const SIDEBAR: Sidebar = {
   en: {
     "Getting Started": [
       { text: "Introduction", link: "en/introduction" },
-      { text: "Page 2", link: "en/page-2" },
+      { text: "Installation", link: "en/Installation" },
       { text: "Page 3", link: "en/page-3" },
     ],
     "Another Section": [{ text: "Page 4", link: "en/page-4" }],
+    Components: [{ text: "Collision", link: "en/components/collision" }],
   },
 };
