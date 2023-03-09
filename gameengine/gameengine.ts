@@ -74,7 +74,6 @@ class GameObject {
 		this.window = window;
 	}
 
-<<<<<<< HEAD
   addComponent(component: any) {
     component.gameObject = this;
     component.window = this.window;
@@ -99,29 +98,7 @@ class GameObject {
     this.window.GameObjects.push(this);
     this.inGame = true;
   }
-=======
-	addComponent(component: any) {
-		component.gameObject = this;
-		component.window = this.window;
-		if (component.start) component.start();
-		this.components.push(component);
-	}
-	getComponentById(c: string) {
-		return this.components.find((component) => component.id === c);
-	}
-	destroy() {
-		// console.log("hello");
-		this.window.GameObjects.forEach((i, index) => {
-			if (i == this) this.window.GameObjects.splice(index, 1);
-		});
-		console.log(this.window.GameObjects.length);
-		this.inGame = false;
-	}
-	create() {
-		this.window.GameObjects.push(this);
-		this.inGame = true;
-	}
->>>>>>> 64cf326aa7aa34886234eaecd5b6e16bfe0295cb
+
 }
 
 // type componentType = Parameters<com>;
