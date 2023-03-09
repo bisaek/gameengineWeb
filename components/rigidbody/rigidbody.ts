@@ -1,11 +1,9 @@
-import { window, GameObject } from "huggerengine";
+import { component } from "huggerengine";
 import collision from "huggerengine-collision";
 
-export default class rigidbody {
+export default class rigidbody extends component {
   public id = "rigidbody";
-  public window!: window;
-  public gameObject!: GameObject;
-  public collision!: collision;
+  public collision: collision | undefined;
   public collisionSides = {
     left: false,
     right: false,
@@ -17,6 +15,7 @@ export default class rigidbody {
   private velocity = 1.07;
 
   start() {
+    console.log(collision)
     this.collision = this.gameObject.getComponent(collision);
     if (this.collision) this.collisionSides = this.collision.collisionSides;
     console.log(this.collision);
@@ -52,6 +51,7 @@ export default class rigidbody {
   moveY(y: number) {
     if (!this.collision) {
       this.gameObject.y += y;
+      // console.log("what the what");
       return;
     }
     this.collision.checkForCollision();
@@ -59,8 +59,13 @@ export default class rigidbody {
       (y < 0 && !this.collisionSides.top) ||
       (y > 0 && !this.collisionSides.bottom)
     ) {
-      if (y > 0) this.gravity_speed *= this.velocity;
-      else this.gravity_speed = 0.1;
+      if (y > 0) {
+        this.gravity_speed *= this.velocity;
+        // console.log(this.gravity_speed);
+      } else {
+        this.gravity_speed = 0.1;
+        // console.log("why");
+      }
       this.gameObject.y += y;
       this.collision.checkForCollision();
       // if(y > 0 && this.collisionSides.top){
