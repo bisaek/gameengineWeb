@@ -1,8 +1,6 @@
-import { window, GameObject } from "huggerengine";
+import { window, GameObject, component } from "huggerengine";
 
-export default class rect {
-  public gameObject!: GameObject;
-  public window!: window;
+export default class rect extends component {
   public color = "#000000";
   // public window;
   update() {
