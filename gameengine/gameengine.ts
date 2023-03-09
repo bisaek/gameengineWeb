@@ -28,6 +28,9 @@ class component {
   setDefualtOptions(options: {}) {
     this.options = { ...options, ...this.options };
   }
+  public getId() {
+    return this.options.id;
+  }
 }
 
 class GameObject {
@@ -63,7 +66,10 @@ class GameObject {
     return this.components.find((component) => component instanceof c);
   }
   getComponentById(c: string) {
-    return this.components.find((component) => component.options.id === c);
+    return this.components.find((component) => {
+      console.log(component);
+      return component.getId() === c;
+    });
   }
   destroy() {
     // console.log("hello");
