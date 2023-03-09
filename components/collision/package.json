@@ -1,12 +1,12 @@
 {
   "name": "huggerengine-collision",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "",
   "main": "collision.ts",
   "keywords": [],
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "huggerengine": "^0.1.1"
+    "huggerengine": "^0.1.5"
   }
 }
