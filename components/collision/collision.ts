@@ -1,8 +1,8 @@
-import { GameObject, window } from "huggerengine";
+import { GameObject, window, component } from "huggerengine";
 
 // let collisions = [];
 
-export default class collision {
+export default class collision extends component {
   public collisionSides = {
     right: false,
     bottom: false,
@@ -11,11 +11,11 @@ export default class collision {
   };
   public id = "collision";
   public collisionObjects: GameObject[] = [];
-  public window!: window;
-  public gameObject!: GameObject;
+
   public collisionRect = false;
-  constructor(collisionRect = false) {
-    this.collisionRect = collisionRect;
+
+  start() {
+    this.setDefualtOptions({ collisionRect: false, id: "collision" });
   }
   update() {
     this.checkForCollision();
