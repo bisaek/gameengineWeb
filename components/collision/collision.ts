@@ -30,7 +30,7 @@ export default class collision extends component {
 
     this.window.GameObjects.forEach((otherGameObject: GameObject) => {
       if (this.gameObject === otherGameObject) return;
-      if (!otherGameObject.getComponent("collision")) return;
+      if (!otherGameObject.getComponentById("collision")) return;
 
       if (
         this.gameObject.x + this.gameObject.width > otherGameObject.x &&
