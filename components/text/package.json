@@ -1,6 +1,6 @@
 {
   "name": "huggerengine-text",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "",
   "main": "text.ts",
   "scripts": {
@@ -10,6 +10,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "huggerengine": "^0.1.1"
+    "huggerengine": "^0.1.5"
   }
 }

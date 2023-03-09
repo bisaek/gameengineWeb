@@ -1,21 +1,20 @@
-import { GameObject, window } from "huggerengine";
+import { GameObject, window, component } from "huggerengine";
 
-export default class text {
+export default class text extends component {
   id = "text";
-  window!: window;
-  gameObject!: GameObject;
-  size: number = 16;
-  text: string = "hello";
 
-  constructor(text: string, size: number = 16) {
-    this.size = size;
-    this.text = text;
+  start() {
+    this.setDefualtOptions({ size: 16, color: "white" });
   }
 
   update() {
     if (!this.window.ctx) return;
-    this.window.ctx.fillStyle = "white";
-    this.window.ctx.font = this.size + "px Arial";
-    this.window.ctx.fillText(this.text, this.gameObject.x, this.gameObject.y);
+    this.window.ctx.fillStyle = this.options.color;
+    this.window.ctx.font = this.options.size + "px Arial";
+    this.window.ctx.fillText(
+      this.options.text,
+      this.gameObject.x,
+      this.gameObject.y
+    );
   }
 }
