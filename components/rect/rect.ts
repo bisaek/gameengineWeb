@@ -12,4 +12,8 @@ export default class rect extends component {
       this.gameObject.height
     );
   }
+
+  public color(c: string) {
+    this.options.color = c;
+  }
 }
