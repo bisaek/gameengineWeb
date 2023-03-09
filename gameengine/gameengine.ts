@@ -15,7 +15,7 @@ interface Options {
 class component {
   gameObject!: GameObject;
   window!: window;
-  options = {};
+  options: any = {};
   defualtOptions = {};
   constructor(options: {}) {
     // console.log(this.defualtOptions);
