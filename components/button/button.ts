@@ -1,11 +1,8 @@
-import { GameObject, window } from "huggerengine";
+import { GameObject, window, component } from "huggerengine";
 
-export default class button {
+export default class button extends component {
   id = "button";
-  gameObject!: GameObject;
-  window!: window;
-  textSize = 16;
-  text = "";
+
   rect = {
     x: 0,
     y: 0,
@@ -14,10 +11,6 @@ export default class button {
   };
   clicked = () => {};
 
-  constructor(text: string, size: number) {
-    this.textSize = size;
-    this.text = text;
-  }
   start() {
     this.rect = {
       x: this.gameObject.x,
@@ -45,10 +38,10 @@ export default class button {
     this.window.ctx.strokeStyle = "#000000";
     this.window.ctx.stroke();
     this.window.ctx.closePath();
-    this.window.ctx.font = this.textSize + "pt Arial";
+    this.window.ctx.font = this.options.textSize + "pt Arial";
     this.window.ctx.fillStyle = "#000000";
     this.window.ctx.fillText(
-      this.text,
+      this.options.text,
       this.gameObject.x,
       this.gameObject.y + this.gameObject.height / 2
     );

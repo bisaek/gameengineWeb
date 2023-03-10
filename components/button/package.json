@@ -1,6 +1,6 @@
 {
   "name": "huggerengine-button",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "",
   "main": "button.ts",
   "scripts": {
@@ -10,6 +10,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "huggerengine": "^0.1.1"
+    "huggerengine": "^0.1.5"
   }
 }
