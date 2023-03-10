@@ -41,19 +41,22 @@ class GameObject {
   public window: window;
   public components: Array<any> = [];
   public inGame = true;
+  public id: string = "";
 
   constructor(
     x: number,
     y: number,
     height: number,
     width: number,
-    window: window
+    window: window,
+    id: string
   ) {
     this.x = x;
     this.y = y;
     this.height = height;
     this.width = width;
     this.window = window;
+    this.id = id;
   }
 
   addComponent(component: any) {
@@ -195,8 +198,14 @@ class window {
   // mouseDown(listenerFunction: ListenerFunction) {
   //   this.canvas?.addEventListener("mousedown", listenerFunction);
   // }
-  createGameObject(x: number, y: number, height: number, width: number) {
-    let gameObject = new GameObject(x, y, height, width, this);
+  createGameObject(
+    x: number,
+    y: number,
+    height: number,
+    width: number,
+    id: string
+  ) {
+    let gameObject = new GameObject(x, y, height, width, this, id);
     this.GameObjects.push(gameObject);
     return gameObject;
   }
@@ -205,6 +214,10 @@ class window {
   }
   keyPress(key: string) {
     return this.keyPresses.includes(key);
+  }
+
+  getGameObjectById(id: string) {
+    return this.GameObjects.find((GO) => GO.id == id);
   }
   //   createrect(x: number, y: number, height: number, width: number) {
   //     let gameObject = new GameObject(x, y, height, width, this);
