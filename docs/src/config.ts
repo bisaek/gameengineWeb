@@ -52,7 +52,12 @@ export const SIDEBAR: Sidebar = {
       { text: "Installation", link: "en/Installation" },
       { text: "Page 3", link: "en/page-3" },
     ],
-    "Another Section": [{ text: "Page 4", link: "en/page-4" }],
+    "Create components": [
+      {
+        text: "create your first component",
+        link: "en/create components/firstComponent",
+      },
+    ],
     Components: [{ text: "Collision", link: "en/components/collision" }],
   },
 };

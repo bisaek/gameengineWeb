@@ -1,0 +1,26 @@
+---
+title: first component
+description: craeting your first component for huggerengine
+layout: ../../../layouts/MainLayout.astro
+---
+
+## What is a component
+
+A component is a class that is a extends of the component class. In the class there are two functions start and update. start run when the game its loaded and update run every frame. there are also two variable window and gameObject. the window can be used to get keyDown and keyPress, and the gameObject can be used to get other components from the same gameObject.
+
+## how do you create a class
+
+```ts
+import { component } from "huggerengine";
+
+class MyComponent extends component {
+  start() {
+    console.log("first frame");
+  }
+  update() {
+    console.log("new frame");
+  }
+}
+```
+
+creating a component is just like creating a class, but you need to extends component.

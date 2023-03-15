@@ -1,16 +1,14 @@
 <script>
-  import { window, GameObject } from "huggerengine";
+  import { window, GameObject, component } from "huggerengine";
   import rect from "huggerengine-rect";
   import collision from "huggerengine-collision";
   import rigidbody from "huggerengine-rigidbody";
 
-  class Player {
-    gameObject!: GameObject;
+  class Player extends component {
     rb!: rigidbody;
-    window!: window;
 
     start() {
-      this.rb = this.gameObject.getComponent("rigidbody");
+      this.rb = this.gameObject.getComponentById("rigidbody");
     }
 
     update() {
@@ -23,13 +21,13 @@
   let game = new window("#game", { width: 500, height: 500 });
 
   let platform = game.createGameObject(50, 400, 50, 400);
-  platform.addComponent(new rect());
-  platform.addComponent(new collision());
+  platform.addComponent(new rect({}));
+  platform.addComponent(new collision({}));
 
   let player = game.createGameObject(225, 100, 50, 50);
-  player.addComponent(new rect());
-  player.addComponent(new collision());
-  player.addComponent(new rigidbody());
-  player.addComponent(new Player());
+  player.addComponent(new rect({}));
+  player.addComponent(new collision({}));
+  player.addComponent(new rigidbody({ id: "rigidbody" }));
+  player.addComponent(new Player({}));
 </script>
 <canvas id="game"></canvas>
