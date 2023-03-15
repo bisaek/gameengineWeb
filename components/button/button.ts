@@ -47,6 +47,10 @@ export default class button extends component {
     );
   }
 
+  setText(text: string) {
+    this.options.text = text;
+  }
+
   onClicked(e: MouseEvent) {
     let pos = {
       x: e.clientX,
