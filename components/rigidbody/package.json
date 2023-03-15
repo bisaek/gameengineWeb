@@ -1,6 +1,6 @@
 {
   "name": "huggerengine-rigidbody",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "rigidbody.ts",
   "scripts": {
